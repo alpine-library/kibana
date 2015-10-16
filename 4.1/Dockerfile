@@ -21,7 +21,7 @@ RUN set -x \
   && ln -sf /usr/bin/npm /kibana/node/bin/npm
 
 
-COPY run.sh /run.sh
+COPY docker-entrypoint.sh /entrypoint.sh
 
 EXPOSE 5601
-CMD ["/run.sh"]
+ENTRYPOINT ["/entrypoint.sh"]
