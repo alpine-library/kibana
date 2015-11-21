@@ -3,18 +3,16 @@ set -e
 
 declare -A aliases
 aliases=(
-	["8.1"]='8.1 edge'
-	["8.0"]='8 latest'
+	["4.2"]='4 latest'
 )
 
-# alias readlink=greadlink
 
-cd "$(dirname "$(readlink -f "$BASH_SOURCE")")"
+which greadlink > /dev/null 2>&1 && cd "$(dirname "$(greadlink -f "$BASH_SOURCE")")" || cd "$(dirname "$(readlink -f "$BASH_SOURCE")")"
 
 versions=( */ )
 versions=( "${versions[@]%/}" )
 
-url='git://github.com/alpine-library/gitlab'
+url='git://github.com/alpine-library/kibana'
 echo '# maintainer: Ekozan <m@3Ko.fr>'
 
 for version in "${versions[@]}"; do
