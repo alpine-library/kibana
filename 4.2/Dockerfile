@@ -22,8 +22,9 @@ RUN set -x \
   && chown -R kibana:kibana /opt/kibana
 
 COPY docker-entrypoint.sh /entrypoint.sh
-RUN chmod +x /entrypoint.sh
-RUN chown kibana:kibana /entrypoint.sh
+RUN chown kibana:kibana /entrypoint.sh \
+  && chmod +x /entrypoint.sh
+
 USER kibana
 
 WORKDIR /opt/kibana
